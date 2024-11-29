@@ -81,17 +81,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 },
               ),
             ),
-            ElevatedButton(
-                onPressed: () =>
-                    MainApp.of(context).changeTheme(ThemeMode.light),
-                child: const Text("Light Mode")),
-            const SizedBox(
-              height: 24,
-            ),
-            ElevatedButton(
-                onPressed: () =>
-                    MainApp.of(context).changeTheme(ThemeMode.dark),
-                child: const Text("Dark Mode")),
             Padding(
               padding: const EdgeInsets.all(16),
               child: Row(
