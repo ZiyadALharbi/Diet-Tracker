@@ -69,7 +69,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 .textTheme
                                 .bodyMedium
                                 ?.copyWith(
-                                  fontSize: 24,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.center,
