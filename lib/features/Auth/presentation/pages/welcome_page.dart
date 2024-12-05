@@ -19,7 +19,7 @@ class WelcomePage extends StatelessWidget {
             LoginMassage(), // i created it here THEN Extracted the widget from the WelcomePage Widget.
             SizedBox(
               height: 20,
-            )
+            ),
           ],
         ),
       ),

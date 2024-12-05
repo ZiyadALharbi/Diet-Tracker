@@ -9,6 +9,7 @@ class CustomTextField extends StatefulWidget {
     this.controller,
     this.onChanged,
     this.isPassword = false,
+    this.suffixText, // New parameter for suffix text
   });
 
   final String hint;
@@ -17,6 +18,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController? controller;
   final Function(String)? onChanged;
   final bool? isPassword;
+  final String? suffixText; // Optional suffix text
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -71,6 +73,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     },
                   )
                 : null,
+            suffixText: widget.suffixText, // Adding suffix text
+            suffixStyle: const TextStyle(
+              color: Color(0xFF6E7179),
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+            ),
             labelStyle: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w400,

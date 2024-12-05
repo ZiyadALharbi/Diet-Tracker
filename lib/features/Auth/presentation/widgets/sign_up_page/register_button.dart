@@ -1,15 +1,17 @@
+import 'package:diet_tracker/features/Auth/presentation/pages/activation_page.dart';
 import 'package:diet_tracker/features/Auth/presentation/pages/sign_up_page.dart';
+import 'package:diet_tracker/features/userSetup/presentation/pages/user_setup_page.dart';
 import 'package:flutter/material.dart';
 
-class NextButton extends StatelessWidget {
-  const NextButton({
+class RegisterButton extends StatelessWidget {
+  const RegisterButton({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(10.0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: Theme.of(context).colorScheme.primary,
@@ -21,12 +23,12 @@ class NextButton extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const SignUpPage(),
+              builder: (context) => const UserSetupPage(),
             ),
           );
         },
         child: const Text(
-          "Next",
+          "Register",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
