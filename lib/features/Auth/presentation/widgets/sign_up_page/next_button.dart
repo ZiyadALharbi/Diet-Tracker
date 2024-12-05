@@ -1,8 +1,8 @@
-
+import 'package:diet_tracker/features/Auth/presentation/pages/sign_up_page.dart';
 import 'package:flutter/material.dart';
 
-class StartButton extends StatelessWidget {
-  const StartButton({
+class NextButton extends StatelessWidget {
+  const NextButton({
     super.key,
   });
 
@@ -17,9 +17,16 @@ class StartButton extends StatelessWidget {
             minimumSize: const Size(double.infinity, 50),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10))),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SignUpPage(),
+            ),
+          );
+        },
         child: const Text(
-          "Start",
+          "Next",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

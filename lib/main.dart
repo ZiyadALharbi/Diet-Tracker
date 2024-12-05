@@ -1,5 +1,6 @@
 import 'package:diet_tracker/core/styles/app_colors.dart';
-import 'package:diet_tracker/features/Auth/presentation/pages/welcome_page.dart';
+import 'package:diet_tracker/features/Auth/presentation/pages/sign_up_page.dart';
+import 'package:diet_tracker/features/onBoarding/presentation/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,7 +28,7 @@ class _MainAppState extends State<MainApp> {
       theme: _buildLightTheme(),
       darkTheme: _buildDarkTheme(), // to be changed to custom
       themeMode: _themeMode, // device controls theme
-      home: const WelcomePage(),
+      home: const OnboardingPage(),
     );
   }
 
@@ -64,9 +65,9 @@ class _MainAppState extends State<MainApp> {
           primary: AppColors.darkPrimary,
           secondary: AppColors.darkSecondary,
         ),
-        scaffoldBackgroundColor: const Color(0x0D0D0D),
+        scaffoldBackgroundColor: const Color(0x000d0d0d),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0x0D0D0D),
+          backgroundColor: Color(0x000d0d0d),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(

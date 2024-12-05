@@ -1,6 +1,6 @@
-import 'package:diet_tracker/features/Auth/presentation/widgets/login_massage.dart';
-import 'package:diet_tracker/features/Auth/presentation/widgets/start_button.dart';
-import 'package:diet_tracker/features/Auth/presentation/widgets/welcome_massage.dart';
+import 'package:diet_tracker/features/Auth/presentation/widgets/welcome_page/login_massage.dart';
+import 'package:diet_tracker/features/Auth/presentation/widgets/welcome_page/start_button.dart';
+import 'package:diet_tracker/features/Auth/presentation/widgets/welcome_page/welcome_massage.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
