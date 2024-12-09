@@ -22,7 +22,7 @@ class _WeightTrackerPageState extends State<WeightTrackerPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProfileHeader(),
+            const ProfileHeader(),
             const SizedBox(height: 16),
             Expanded(
               flex: 2,

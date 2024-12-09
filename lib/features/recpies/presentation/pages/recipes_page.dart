@@ -39,7 +39,7 @@ class _RecipesPageState extends State<RecipesPage> {
   void _openAddRecipeForm() async {
     final newRecipe = await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => AddRecipePage()),
+      MaterialPageRoute(builder: (context) => const AddRecipePage()),
     );
 
     if (newRecipe != null && newRecipe is Recipe) {

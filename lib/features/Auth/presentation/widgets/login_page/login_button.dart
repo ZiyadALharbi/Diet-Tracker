@@ -22,7 +22,7 @@ class LoginButton extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => TrackingPage(),
+              builder: (context) => const TrackingPage(),
             ),
           );
         },

@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SendCodePage(),
+                          builder: (context) => const SendCodePage(),
                         ),
                       );
                     },

@@ -60,9 +60,9 @@ class _TrackingPageState extends State<TrackingPage> {
   Widget build(BuildContext context) {
     // Pages for navigation
     final List<Widget> pages = [
-      Center(child: RecipesPage()),
+      const Center(child: RecipesPage()),
       buildHomePage(), // Home Page
-      Center(child: WeightTrackerPage()),
+      const Center(child: WeightTrackerPage()),
     ];
 
     return Scaffold(
@@ -96,7 +96,7 @@ class _TrackingPageState extends State<TrackingPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProfilePage()),
+                              builder: (context) => const ProfilePage()),
                         );
                       },
                       child: const CircleAvatar(
@@ -111,7 +111,7 @@ class _TrackingPageState extends State<TrackingPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProfilePage()),
+                              builder: (context) => const ProfilePage()),
                         );
                       },
                       child: Text(
@@ -227,7 +227,7 @@ class _TrackingPageState extends State<TrackingPage> {
               onPressed: () async {
                 final meal = await Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AddMealPage()),
+                  MaterialPageRoute(builder: (context) => const AddMealPage()),
                 );
                 if (meal != null) {
                   addMeal(meal);
@@ -236,7 +236,7 @@ class _TrackingPageState extends State<TrackingPage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueGrey,
               ),
-              child: Text("Add Meal"),
+              child: const Text("Add Meal"),
             ),
           ],
         ),

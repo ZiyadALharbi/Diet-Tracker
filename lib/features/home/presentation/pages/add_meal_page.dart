@@ -131,7 +131,7 @@ class _AddMealPageState extends State<AddMealPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AddExistingMealPage(),
+                        builder: (context) => const AddExistingMealPage(),
                       ),
                     );
                   },

@@ -3,11 +3,11 @@ import 'package:fl_chart/fl_chart.dart';
 
 class WeightGraph extends StatelessWidget {
   final List<FlSpot> dataPoints = [
-    FlSpot(0, 75), // 2022
-    FlSpot(1, 82), // 2023
-    FlSpot(2, 83.5), // 2024
-    FlSpot(3, 89.3), // 2025
-    FlSpot(4, 91), // 2026
+    const FlSpot(0, 75), // 2022
+    const FlSpot(1, 82), // 2023
+    const FlSpot(2, 83.5), // 2024
+    const FlSpot(3, 89.3), // 2025
+    const FlSpot(4, 91), // 2026
   ];
 
    WeightGraph({super.key});

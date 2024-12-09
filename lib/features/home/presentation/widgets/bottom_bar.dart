@@ -38,26 +38,26 @@ class CustomBottomBar extends StatelessWidget {
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
             left: _calculateHighlightPosition(screenWidth),
-            top: 15, // Center the circle vertically
+            top: 15,
             child: Container(
-              width: 48, // Size of the circular highlight
-              height: 48,
+              width: 50,
+              height: 50,
               decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 8,
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 12,
                     offset: const Offset(0, 4),
                   ),
                 ],
               ),
               child: Center(
                 child: Icon(
-                  _getActiveIcon(), // Icon inside the highlight
+                  _getActiveIcon(),
                   color: Colors.blue,
-                  size: 24,
+                  size: 26,
                 ),
               ),
             ),
@@ -94,22 +94,19 @@ class CustomBottomBar extends StatelessWidget {
     );
   }
 
-  // Calculate the horizontal position of the circular highlight
   double _calculateHighlightPosition(double screenWidth) {
-    final tabWidth = screenWidth / 3; // Divide the bar into 3 equal sections
+    final tabWidth = screenWidth / 3;
     return currentIndex * tabWidth +
         (tabWidth / 2) -
-        24; // Center the highlight
+        25; // Center the highlight
   }
 
-  // Get the active icon to display inside the white circle
   IconData _getActiveIcon() {
     if (currentIndex == 0) return Icons.book;
     if (currentIndex == 1) return Icons.home;
     return Icons.bar_chart;
   }
 
-  // Build each navigation item
   Widget _buildNavItem({
     required IconData icon,
     required String label,
@@ -123,21 +120,21 @@ class CustomBottomBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            color: isActive ? Colors.blue : Colors.white,
-            size:
-                isActive ? 24 : 20, // Different sizes for active/inactive icons
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: TextStyle(
-              color: isActive ? Colors.blue : Colors.white.withOpacity(0.8),
-              fontSize: 12,
-              fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+          if (!isActive) // Only show the icon if it's not active
+            Icon(
+              icon,
+              color: Colors.white70,
+              size: 22,
             ),
-          ),
+          if (!isActive) const SizedBox(height: 4),
+          if (!isActive) // Only show the label if it's not active
+            Text(
+              label,
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.8),
+                fontSize: 12,
+              ),
+            ),
         ],
       ),
     );
