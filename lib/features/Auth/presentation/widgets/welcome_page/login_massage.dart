@@ -1,3 +1,4 @@
+import 'package:diet_tracker/features/Auth/presentation/pages/Login_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,15 @@ class LoginMassage extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
               fontWeight: FontWeight.w700,
             ),
-            recognizer: TapGestureRecognizer()..onTap = () {},
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginPage(),
+                  ),
+                );
+              },
           ),
         ],
       ),
