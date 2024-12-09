@@ -31,7 +31,7 @@ class _MainAppState extends State<MainApp> {
       theme: _buildLightTheme(),
       darkTheme: _buildDarkTheme(), // to be changed to custom
       themeMode: _themeMode, // device controls theme
-      home: const LoginPage(),
+      home: const OnboardingPage(),
     );
   }
 
