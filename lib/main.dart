@@ -1,9 +1,12 @@
 import 'package:diet_tracker/core/styles/app_colors.dart';
+import 'package:diet_tracker/features/Auth/presentation/pages/Login_page.dart';
 import 'package:diet_tracker/features/Auth/presentation/pages/welcome_page.dart';
 import 'package:diet_tracker/features/onBoarding/presentation/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(const MainApp());
 }
 
@@ -28,7 +31,7 @@ class _MainAppState extends State<MainApp> {
       theme: _buildLightTheme(),
       darkTheme: _buildDarkTheme(), // to be changed to custom
       themeMode: _themeMode, // device controls theme
-      home: const OnboardingPage(),
+      home: const LoginPage(),
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:diet_tracker/core/utils/custom_text_field.dart';
-import 'package:diet_tracker/features/Auth/presentation/widgets/sign_up_page/register_button.dart';
+import 'package:diet_tracker/features/Auth/data/models/user_mode.dart';
+import 'package:diet_tracker/features/userSetup/presentation/pages/user_setup_page.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -80,23 +81,42 @@ class _SignUpPageState extends State<SignUpPage> {
                     password = value;
                   },
                 ),
-                GestureDetector(
-                  onTap: () => _selectDate(context),
-                  child: AbsorbPointer(
-                    child: CustomTextField(
-                      hint: "YYYY-MM-DD",
-                      label: "Date of Birth",
-                      icon: Icons.calendar_today_outlined,
-                      controller: dobController,
-                    ),
-                  ),
-                ),
               ],
             ),
             const Spacer(), // Push content towards the center
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
-              child: RegisterButton(), // Button at the bottom
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  foregroundColor: Colors.white,
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                ),
+                onPressed: () {
+                  final user = UserModel(
+                    name: nameController.text.trim(),
+                    email: emailController.text.trim(),
+                    username: username.trim(),
+                    password: password.trim(),
+                  );
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UserSetupPage(user: user),
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Register",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ],
         ),

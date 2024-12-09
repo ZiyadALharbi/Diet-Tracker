@@ -32,7 +32,7 @@ class RecipeDetailsPage extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                recipe.image,
+                "/Users/ziyadalharbi/Downloads/Diet-Tracker-main/assets/images/Kabab.jpg",
                 width: double.infinity,
                 height: 250,
                 fit: BoxFit.cover,

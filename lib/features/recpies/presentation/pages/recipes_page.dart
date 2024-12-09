@@ -101,7 +101,7 @@ class _RecipesPageState extends State<RecipesPage> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(16),
                           child: Image.asset(
-                            recipe.image,
+                            '/Users/ziyadalharbi/Downloads/Diet-Tracker-main/assets/images/Kabab.jpg',
                             width: double.infinity,
                             height: 200,
                             fit: BoxFit.cover,

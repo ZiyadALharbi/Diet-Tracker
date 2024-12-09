@@ -16,7 +16,7 @@ class TrackingPage extends StatefulWidget {
 }
 
 class _TrackingPageState extends State<TrackingPage> {
-  int _currentIndex = 1; // Default to Home
+  int _currentIndex = 1; 
 
   // State variables for the Home Page
   int calories = 0;
