@@ -1,4 +1,5 @@
 import 'package:diet_tracker/features/Auth/presentation/pages/Login_page.dart';
+import 'package:diet_tracker/features/Auth/presentation/pages/forgot_password/reset_password.dart';
 import 'package:flutter/material.dart';
 
 class SendCodeButton extends StatelessWidget {
@@ -21,7 +22,7 @@ class SendCodeButton extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const LoginPage(),
+              builder: (context) => const ResetPasswordPage(),
             ),
           );
         },

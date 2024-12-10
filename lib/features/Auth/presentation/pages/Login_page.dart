@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:diet_tracker/core/utils/custom_text_field.dart';
-import 'package:diet_tracker/features/Auth/presentation/pages/forgot_password/send_code.dart';
+import 'package:diet_tracker/features/Auth/presentation/pages/forgot_password/send_code_page.dart';
 import 'package:diet_tracker/features/home/presentation/pages/tracking_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
