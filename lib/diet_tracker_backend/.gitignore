@@ -1,0 +1,12 @@
+node_modules
+.env
+../flutterProject/
+../*.dart_tool/
+../*.flutter/
+../*.android/
+../*.ios/
+../build/
+../*.pub-cache/
+../*.packages/
+../.idea/
+../flutterProject/hw_12/

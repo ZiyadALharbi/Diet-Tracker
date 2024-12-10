@@ -3,6 +3,10 @@ import 'package:diet_tracker/features/home/presentation/widgets/bottom_bar.dart'
 import 'package:diet_tracker/features/recpies/presentation/pages/recipes_page.dart';
 import 'package:diet_tracker/features/reports/pages/weight_tracker_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 import '../widgets/nutrients_indicator.dart';
 import '../widgets/water_intake_widget.dart';
 import 'add_meal_page.dart';
@@ -27,6 +31,83 @@ class _TrackingPageState extends State<TrackingPage> {
   double waterIntake = 0.0;
   DateTime? selectedDate;
   List<Map<String, dynamic>> meals = [];
+  String userName = "Loading..."; // Initial placeholder for user name
+  bool isLoading = true; // To control initial loading state
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserData();
+    _fetchMeals();
+  }
+
+  Future<void> _fetchUserData() async {
+    final storage = GetStorage();
+    final token = storage.read('auth_token');
+
+    try {
+      final response = await http.get(
+        Uri.parse('http://localhost:5022/api/users/profile'),
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        setState(() {
+          userName = data['name'] ?? "User";
+          isLoading = false;
+        });
+      } else {
+        debugPrint("Failed to fetch user data: ${response.body}");
+        setState(() {
+          userName = "User"; // Fallback name
+          isLoading = false;
+        });
+      }
+    } catch (e) {
+      debugPrint("Error fetching user data: $e");
+      setState(() {
+        userName = "User"; // Fallback name
+        isLoading = false;
+      });
+    }
+  }
+
+  Future<void> _fetchMeals() async {
+    final storage = GetStorage();
+    final token = storage.read('auth_token');
+
+    try {
+      final response = await http.get(
+        Uri.parse('http://localhost:5022/api/reports/get-daily-reports'),
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        setState(() {
+          meals = (data['meals'] as List)
+              .map((meal) => {
+                    'name': meal['name'],
+                    'calories': meal['calories'],
+                    'proteins': meal['proteins'],
+                    'carbs': meal['carbs'],
+                    'fats': meal['fats'],
+                    'time': DateTime.parse(meal['createdAt']),
+                  })
+              .toList();
+        });
+      } else {
+        debugPrint("Failed to fetch meals: ${response.body}");
+      }
+    } catch (e) {
+      debugPrint("Error fetching meals: $e");
+    }
+  }
 
   // Add a meal
   void addMeal(Map<String, dynamic> meal) {
@@ -59,7 +140,6 @@ class _TrackingPageState extends State<TrackingPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Pages for navigation
     final List<Widget> pages = [
       Center(child: RecipesPage()),
       buildHomePage(), // Home Page
@@ -67,7 +147,11 @@ class _TrackingPageState extends State<TrackingPage> {
     ];
 
     return Scaffold(
-      body: pages[_currentIndex], // Display the selected page
+      body: isLoading
+          ? Center(
+              child:
+                  CircularProgressIndicator()) // Show loader until data is fetched
+          : pages[_currentIndex],
       bottomNavigationBar: CustomBottomBar(
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -79,7 +163,6 @@ class _TrackingPageState extends State<TrackingPage> {
     );
   }
 
-  // Build the Home Page with all widgets
   Widget buildHomePage() {
     return SingleChildScrollView(
       child: Padding(
@@ -118,7 +201,7 @@ class _TrackingPageState extends State<TrackingPage> {
                         );
                       },
                       child: Text(
-                        "John Doe", // Replace with dynamic name if needed
+                        userName, // Dynamically displays the user's name
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -193,9 +276,7 @@ class _TrackingPageState extends State<TrackingPage> {
             const SizedBox(height: 20),
 
             // Meals List
-            ...meals.asMap().entries.map((entry) {
-              final index = entry.key;
-              final meal = entry.value;
+            ...meals.map((meal) {
               return Card(
                 color: Colors.white,
                 elevation: 4.0,
@@ -208,11 +289,7 @@ class _TrackingPageState extends State<TrackingPage> {
                     meal['name'],
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  subtitle: Text("Added at: ${formatTime(meal['time'])}"),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.close, color: Colors.red),
-                    onPressed: () => deleteMeal(index),
-                  ),
+                  subtitle: Text("Calories: ${meal['calories']}"),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -223,7 +300,7 @@ class _TrackingPageState extends State<TrackingPage> {
                   },
                 ),
               );
-            }),
+            }).toList(),
 
             // Add Meal Button
             ElevatedButton(
