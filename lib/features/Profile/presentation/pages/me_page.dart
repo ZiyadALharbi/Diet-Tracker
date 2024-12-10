@@ -52,6 +52,9 @@ class _MePageState extends State<MePage> {
               style: TextStyle(color: Colors.white, fontSize: 16),
             ),
           ),
+          Center(
+              child: Text("You can EDIT the values by CLICKING on them",
+                  style: TextStyle(color: Colors.green[800], fontSize: 16))),
         ],
       ),
     );
@@ -88,7 +91,8 @@ class _MePageState extends State<MePage> {
                     updateDailyNutrients = value ?? true;
                   });
                   Navigator.of(context).pop(); // Close the dialog temporarily
-                  showSaveDialog(context); // Reopen the dialog with updated state
+                  showSaveDialog(
+                      context); // Reopen the dialog with updated state
                 },
               ),
               const Expanded(
