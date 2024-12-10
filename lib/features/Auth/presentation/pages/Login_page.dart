@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  TrackingPage()), // Replace with your TrackerPage widget
+                  TrackingPage(token: data['token'])), // Replace with your TrackerPage widget
         );
       } else {
         final errorData = jsonDecode(response.body);

@@ -9,14 +9,15 @@ import 'add_meal_page.dart';
 import 'meal_stats_page.dart';
 
 class TrackingPage extends StatefulWidget {
-  const TrackingPage({super.key});
+  final String token;
+  const TrackingPage({super.key, required this.token});
 
   @override
   _TrackingPageState createState() => _TrackingPageState();
 }
 
 class _TrackingPageState extends State<TrackingPage> {
-  int _currentIndex = 1; 
+  int _currentIndex = 1; // Default to Home
 
   // State variables for the Home Page
   int calories = 0;
@@ -96,7 +97,7 @@ class _TrackingPageState extends State<TrackingPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProfilePage()),
+                              builder: (context) => ProfilePage(token: widget.token)),
                         );
                       },
                       child: const CircleAvatar(
@@ -111,7 +112,7 @@ class _TrackingPageState extends State<TrackingPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProfilePage()),
+                              builder: (context) => ProfilePage(token: widget.token)),
                         );
                       },
                       child: Text(
