@@ -97,7 +97,8 @@ class _TrackingPageState extends State<TrackingPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProfilePage(token: widget.token)),
+                              builder: (context) =>
+                                  ProfilePage(token: widget.token)),
                         );
                       },
                       child: const CircleAvatar(
@@ -112,7 +113,8 @@ class _TrackingPageState extends State<TrackingPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProfilePage(token: widget.token)),
+                              builder: (context) =>
+                                  ProfilePage(token: widget.token)),
                         );
                       },
                       child: Text(
@@ -153,7 +155,7 @@ class _TrackingPageState extends State<TrackingPage> {
 
             // Nutrients Indicator Card
             Card(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.primary,
               elevation: 4.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
@@ -172,7 +174,7 @@ class _TrackingPageState extends State<TrackingPage> {
 
             // Water Intake Card
             Card(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.primary,
               elevation: 4.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
@@ -235,7 +237,7 @@ class _TrackingPageState extends State<TrackingPage> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey,
+                backgroundColor: Theme.of(context).colorScheme.primary,
               ),
               child: Text("Add Meal"),
             ),

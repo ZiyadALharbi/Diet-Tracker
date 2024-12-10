@@ -20,7 +20,7 @@ class _AddMealPageState extends State<AddMealPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add Meal"),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -109,7 +109,7 @@ class _AddMealPageState extends State<AddMealPage> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueGrey,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0),
                     ),
@@ -143,7 +143,8 @@ class _AddMealPageState extends State<AddMealPage> {
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ).copyWith(
-                    overlayColor: WidgetStateProperty.all(Colors.grey[200]), // Hover effect
+                    overlayColor: WidgetStateProperty.all(
+                        Colors.grey[200]), // Hover effect
                   ),
                   child: const Text(
                     "Add Existing Meal",

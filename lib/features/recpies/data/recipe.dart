@@ -20,4 +20,6 @@ class Recipe {
     required this.description,
     this.videoUrl, // Optional parameter
   });
+
+  static fromJson(e) {}
 }

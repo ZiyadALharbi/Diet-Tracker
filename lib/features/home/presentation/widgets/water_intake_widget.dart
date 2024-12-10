@@ -5,7 +5,8 @@ class WaterIntakeWidget extends StatelessWidget {
   final VoidCallback onAdd;
   final VoidCallback onSubtract;
 
-  const WaterIntakeWidget({super.key, 
+  const WaterIntakeWidget({
+    super.key,
     required this.waterIntake,
     required this.onAdd,
     required this.onSubtract,

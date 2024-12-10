@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   String password = "";
   bool _isLoading = false;
 
-  final GetStorage _storage = GetStorage(); 
+  final GetStorage _storage = GetStorage();
 
   Future<void> _login() async {
     final email = emailController.text.trim();
@@ -58,12 +58,14 @@ class _LoginPageState extends State<LoginPage> {
 
         _showMessage('Login successful!', Colors.green);
 
+        print(response.body);
         // Navigate to TrackerPage
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (context) =>
-                  TrackingPage(token: data['token'])), // Replace with your TrackerPage widget
+              builder: (context) => TrackingPage(
+                  token:
+                      data['token'])), // Replace with your TrackerPage widget
         );
       } else {
         final errorData = jsonDecode(response.body);

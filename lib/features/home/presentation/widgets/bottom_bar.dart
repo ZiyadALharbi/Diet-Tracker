@@ -17,7 +17,7 @@ class CustomBottomBar extends StatelessWidget {
     return Container(
       height: 80,
       decoration: BoxDecoration(
-        color: Colors.blue, // Solid blue background
+        color: Theme.of(context).colorScheme.primary, // Solid blue background
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),

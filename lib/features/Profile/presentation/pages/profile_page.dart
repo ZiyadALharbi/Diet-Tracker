@@ -83,7 +83,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       margin: const EdgeInsets.only(bottom: 8),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
